@@ -1,12 +1,11 @@
 class Solution:
     def numIdenticalPairs(self, nums: list[int]) -> int:
-        count=0
-        seen={}
-        for num in nums:
-            if num in seen:
-                count+=seen[num]
-                seen[num]+=1
-            else:
-                seen[num]=1
-        return count
+        count = 0
+        n = len(nums)
         
+        for i in range(n):
+            for j in range(i + 1, n):
+                if nums[i] == nums[j]:
+                    count += 1
+                    
+        return count
